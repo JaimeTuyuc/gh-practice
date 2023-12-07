@@ -3,7 +3,16 @@ on:
   pull_request:
     types: 
       - opened
+    branches:
+      - master
+    #   - 'dev-*' # Match any branch which starts with 'dev-my-branch-name'
+    #   - 'feat/**' # Match any branch which starts with 'feat/,u/branch-name'
   workflow_dispatch:
+  push:
+    branches:
+      - master
+      # - 'dev-*' # Match any branch which starts with 'dev-my-branch-name'
+      # - 'feat/**' # Match any branch which starts with 'feat/,u/branch-name'
 jobs:
   deploy:
     runs-on: ubuntu-latest
