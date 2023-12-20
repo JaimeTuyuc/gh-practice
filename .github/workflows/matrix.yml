@@ -7,9 +7,20 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [16.x]
         os: [ubuntu-latest] # Thil will specify on which operating system will the action run https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix
         # os: [ubuntu-latest, windows-latest, macos-latest] # Thil will specify on which operating system will the action run https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix
+
+        # Iclude and exclude different combinations of the matrix
+        include:
+          - node-version: 18.x
+            os: ubuntu-latest
+
+        # Exclude a combination of the matrix
+        exclude:
+          - node-version: 12.x
+            os: windows-latest
+
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get Code
