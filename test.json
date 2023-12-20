@@ -4,12 +4,12 @@
   "numFailedTestSuites": 0,
   "numPendingTestSuites": 0,
   "numTotalTests": 2,
-  "numPassedTests": 2,
-  "numFailedTests": 0,
+  "numPassedTests": 1,
+  "numFailedTests": 1,
   "numPendingTests": 0,
   "numTodoTests": 0,
-  "startTime": 1702771756979,
-  "success": true,
+  "startTime": 1703030110162,
+  "success": false,
   "testResults": [
     {
       "assertionResults": [
@@ -30,15 +30,21 @@
             "MainContent"
           ],
           "fullName": " MainContent should show the help area after clicking the button",
-          "status": "passed",
+          "status": "failed",
           "title": "should show the help area after clicking the button",
-          "duration": 23,
-          "failureMessages": []
+          "duration": 14,
+          "failureMessages": [
+            "Unable to find an accessible element with the role \"buttone\"\n\nHere are the accessible roles:\n\n  main:\n\n  Name \"\":\n  \u001b[36m<main />\u001b[39m\n\n  --------------------------------------------------\n  button:\n\n  Name \"Show Help\":\n  \u001b[36m<button />\u001b[39m\n\n  --------------------------------------------------\n\nIgnored nodes: comments, script, style\n\u001b[36m<body>\u001b[39m\n  \u001b[36m<div>\u001b[39m\n    \u001b[36m<main>\u001b[39m\n      \u001b[36m<button>\u001b[39m\n        \u001b[0mShow\u001b[0m\n        \u001b[0m Help\u001b[0m\n      \u001b[36m</button>\u001b[39m\n    \u001b[36m</main>\u001b[39m\n  \u001b[36m</div>\u001b[39m\n\u001b[36m</body>\u001b[39m"
+          ],
+          "location": {
+            "line": 27,
+            "column": 49
+          }
         }
       ],
-      "startTime": 1702771758048,
-      "endTime": 1702771758095,
-      "status": "passed",
+      "startTime": 1703030111249,
+      "endTime": 1703030111287,
+      "status": "failed",
       "message": "",
       "name": "/Users/jaimetuyuc/Desktop/courses/git-actions/gh-practice/src/components/MainContent.test.jsx"
     }
