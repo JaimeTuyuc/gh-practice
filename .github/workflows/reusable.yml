@@ -7,9 +7,18 @@ on:
         required: false
         default: dist
         type: string
-      
+    outputs:
+      result:
+        description: 'Result of the deploy'
+        value: ${{ jobs.deploy.outputs.outcome }}}
+    # secrets: 
+    #   some-secret:
+    #     required: false
+    
 jobs:
   deploy:
+    outputs:
+      outcome: ${{ steps.set-result.outputs.step-result }}
     runs-on: ubuntu-latest
     steps:
       - name: Download code
@@ -18,8 +27,18 @@ jobs:
           name: ${{ inputs.artifact-name }}
       - name: List all files
         run: ls
+      # - name: List secrets
+      #   run: | 
+      #     env | grep SECRET
+      #     echo ${{ secrets.some-secret }}
       - name: Output
         id: output
         run: | 
           echo "::set-output name=foo::bar"
           echo "Deploying code..."
+      - name: Upload result
+        id: set-result
+        run: |
+          echo "Deployed"
+          # echo "set-output=success" >> $GITHUB_OUTPUT
+          echo "::set-output name=step-result::success"
